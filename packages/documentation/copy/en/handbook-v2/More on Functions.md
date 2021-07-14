@@ -99,7 +99,7 @@ function firstElement(arr: any[]) {
 This function does its job, but unfortunately has the return type `any`.
 It'd be better if the function returned the type of the array element.
 
-In TypeScript, _generics_ are used when we want to describe a correspondence between two values.
+In TypeScript, _generic functions_ are used when we want to describe a correspondence between two values.
 We do this by declaring a _type parameter_ in the function signature:
 
 ```ts twoslash
@@ -143,7 +143,7 @@ Note that in this example, TypeScript could infer both the type of the `Input` t
 
 ### Constraints
 
-We've written some generic functions that can work on _any_ kind of value.
+We've written some _generic functions_ that can work on _any_ kind of value.
 Sometimes we want to relate two values, but can only operate on a certain subset of values.
 In this case, we can use a _constraint_ to limit the kinds of types that a type parameter can accept.
 
@@ -171,13 +171,13 @@ const notOK = longest(10, 100);
 
 There are few interesting things to note in this example.
 We allowed TypeScript to _infer_ the return type of `longest`.
-Return type inference also works on generic functions.
+Return type inference also works on _generic functions_.
 
 Because we constrained `Type` to `{ length: number }`, we were allowed to access the `.length` property of the `a` and `b` parameters.
 Without the type constraint, we wouldn't be able to access those properties because the values might have been some other type without a length property.
 
 The types of `longerArray` and `longerString` were inferred based on the arguments.
-Remember, generics are all about relating two or more values with the same type!
+Remember, _generic functions_ are all about relating two or more values with the same type!
 
 Finally, just as we'd like, the call to `longest(10, 100)` is rejected because the `number` type doesn't have a `.length` property.
 
@@ -246,7 +246,7 @@ const arr = combine<string | number>([1, 2, 3], ["hello"]);
 
 ### Guidelines for Writing Good Generic Functions
 
-Writing generic functions is fun, and it can be easy to get carried away with type parameters.
+Writing _generic functions_ is fun, and it can be easy to get carried away with type parameters.
 Having too many type parameters or using constraints where they aren't needed can make inference less successful, frustrating callers of your function.
 
 #### Push Type Parameters Down
@@ -498,7 +498,7 @@ function fn(x: string | number) {
 
 ### Writing Good Overloads
 
-Like generics, there are a few guidelines you should follow when using function overloads.
+Like _generic functions_, there are a few guidelines you should follow when using function overloads.
 Following these principles will make your function easier to call, easier to understand, and easier to implement.
 
 Let's consider a function that returns the length of a string or an array:
